@@ -60,14 +60,14 @@ from	(SELECT lgr.ledger_id SET_OF_BOOKS_ID, ps.period_name PERIOD_NAME, pert.to_
 part.conversion_rate AVG_RATE, pert.conversion_rate EOP_RATE, part.conversion_rate AVG_RATE_NUMERATOR, pert.conversion_rate EOP_RATE_NUMERATOR, 
 1 AVG_RATE_DENOMINATOR, 1 EOP_RATE_DENOMINATOR, decode(NULL, 'X',suspense_allowed_flag, 'N') UPDATE_FLAG, NULL LAST_UPDATE_DATE, NULL LAST_UPDATED_BY, 
 NULL CREATION_DATE, NULL CREATED_BY, NULL LAST_UPDATE_LOGIN, NULL ATTRIBUTE1, NULL ATTRIBUTE2, NULL ATTRIBUTE3, NULL ATTRIBUTE4, NULL ATTRIBUTE5, NULL CONTEXT 
- FROM "PC_FIVETRAN_DB"."EBSUAT_GL"."GL_LEDGERS" lgr, "PC_FIVETRAN_DB"."EBSUAT_GL"."GL_PERIOD_STATUSES" ps, 
-"PC_FIVETRAN_DB"."EBSUAT_GL"."GL_ROW_MULTIPLIERS" mult,"PC_FIVETRAN_DB"."EBSUAT_GL"."GL_DAILY_RATES"  pert, 
-"PC_FIVETRAN_DB"."EBSUAT_GL"."GL_DAILY_RATES" part 
+ FROM "PC_FIVETRAN_DB"."ERPPRD_GL"."GL_LEDGERS" lgr, "PC_FIVETRAN_DB"."ERPPRD_GL"."GL_PERIOD_STATUSES" ps, 
+"PC_FIVETRAN_DB"."ERPPRD_GL"."GL_ROW_MULTIPLIERS" mult,"PC_FIVETRAN_DB"."ERPPRD_GL"."GL_DAILY_RATES"  pert, 
+"PC_FIVETRAN_DB"."ERPPRD_GL"."GL_DAILY_RATES" part 
  WHERE ps.application_id = 101 AND ps.ledger_id = lgr.ledger_id AND mult.multiplier in (1,2) AND 
  pert.from_currency = lgr.currency_code AND pert.conversion_date = ps.end_date 
  AND pert.conversion_type = decode(mult.multiplier, 1, lgr.period_end_rate_type, lgr.budget_period_end_rate_type) 
  AND part.from_currency = pert.from_currency AND part.to_currency = pert.to_currency AND pert.conversion_date = part.conversion_date 
- AND part.conversion_type = decode(mult.multiplier, 1, lgr.period_average_rate_type, lgr.budget_period_avg_rate_type))  GL_TRANSLATION_RATES, PC_FIVETRAN_DB."EBSUAT_GL"."GL_PERIOD_STATUSES"   GL_PERIOD_STATUSES
+ AND part.conversion_type = decode(mult.multiplier, 1, lgr.period_average_rate_type, lgr.budget_period_avg_rate_type))  GL_TRANSLATION_RATES, PC_FIVETRAN_DB."ERPPRD_GL"."GL_PERIOD_STATUSES"   GL_PERIOD_STATUSES
 where	(1=1)
  And (GL_TRANSLATION_RATES.SET_OF_BOOKS_ID=GL_PERIOD_STATUSES.SET_OF_BOOKS_ID  AND GL_TRANSLATION_RATES.PERIOD_NAME=GL_PERIOD_STATUSES.PERIOD_NAME)
 

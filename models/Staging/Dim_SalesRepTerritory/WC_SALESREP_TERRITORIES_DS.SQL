@@ -1,3 +1,7 @@
+{{ config (
+    materialized="table"
+)}}
+
 with STUSA as (
 
     select * from {{ ref('SALESREP_TERRITORIES_NONUSA')}}

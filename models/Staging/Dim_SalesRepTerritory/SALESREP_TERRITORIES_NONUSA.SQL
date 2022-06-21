@@ -1,3 +1,7 @@
+{{ config (
+    materialized="table"
+)}}
+
 WITH ST_NONUSA AS
 (
 select	

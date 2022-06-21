@@ -1,3 +1,7 @@
+{{ config (
+    materialized="table"
+)}}
+
 WITH ST1_USA AS 
 (
 select	

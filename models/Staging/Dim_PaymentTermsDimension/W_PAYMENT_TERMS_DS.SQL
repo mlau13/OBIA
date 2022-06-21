@@ -1,3 +1,8 @@
+{{ config (
+    materialized="table"
+)}}
+
+
 WITH PAYMENTTERM AS
 (
 
@@ -263,7 +268,7 @@ select
 	DELETE_FLG,
 	DATASOURCE_NUM_ID,
 	INTEGRATION_ID,
-	X_CUSTOM
+	to_varchar(CURRENT_TIMESTAMP, 'yyyy-MM-DD hh:mi:ss') LAST_DATE
 FROM (	
 
 

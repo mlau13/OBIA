@@ -1,3 +1,7 @@
+{{ config (
+    materialized="table"
+)}}
+
 WITH EMPLOYEE AS
 (
 select FST_NAME	,
@@ -69,7 +73,8 @@ NULL	SALES_REP_FLG	,
 NULL	SOURCE_ADDRESS1	,
 NULL	SOURCE_ADDRESS2	,
 NULL	SOURCE_ADDRESS3	,
-NULL	SOURCE_ADDRESS4	
+NULL	SOURCE_ADDRESS4	,
+to_varchar(CURRENT_TIMESTAMP, 'yyyy-MM-DD hh:mi:ss') LAST_DATE
 
 from 
 

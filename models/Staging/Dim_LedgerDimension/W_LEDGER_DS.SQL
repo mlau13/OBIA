@@ -1,3 +1,7 @@
+{{ config (
+    materialized="table"
+)}}
+
 WITH GL_LEDGERS AS
 (
 select	
@@ -80,7 +84,8 @@ select
 	CREATED_ON_DT,
 	CHANGED_ON_DT,
 	DATASOURCE_NUM_ID,
-	INTEGRATION_ID
+	INTEGRATION_ID,
+	to_varchar(CURRENT_TIMESTAMP, 'yyyy-MM-DD hh:mi:ss') LAST_DATE
 FROM (	
 
 

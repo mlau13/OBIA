@@ -1,3 +1,7 @@
+{{ config (
+    materialized="table"
+)}}
+
 WITH GL_ACCOUNT_DS AS 
 (
     
@@ -692,7 +696,7 @@ And (
    FROM 
      "PC_FIVETRAN_DB"."ERPPRD_GL"."GL_CODE_COMBINATIONS"
  gl 
-  WHERE gl.LAST_UPDATE_DATE > TO_DATE(SUBSTR('2002-01-23 11:41:24',0,19),'YYYY-MM-DD HH24:MI:SS')
+  WHERE gl.LAST_UPDATE_DATE > IFNULL((select MAX(LAST_DATE) from "PC_FIVETRAN_DB"."OBIEE_DW"."W_GL_ACCOUNT_D"),'2002-01-23 11:32:25')
  UNION ALL
  SELECT gl.code_combination_id 
    FROM 
@@ -731,7 +735,7 @@ And (
       AND FND_ID_FLEX_SEGMENTS.ID_FLEX_CODE                         ='GL#')
       ) NAT 
   WHERE gl.CHART_OF_ACCOUNTS_ID = NAT.ID_FLEX_NUM
-   AND  NAT.LAST_UPDATE_DATE > TO_DATE(SUBSTR('2002-01-23 11:41:24',0,19),'YYYY-MM-DD HH24:MI:SS')
+   AND  NAT.LAST_UPDATE_DATE > IFNULL((select MAX(LAST_DATE) from "PC_FIVETRAN_DB"."OBIEE_DW"."W_GL_ACCOUNT_D"),'2002-01-23 11:32:25')
  UNION ALL
  SELECT gl.code_combination_id 
    FROM 
@@ -759,7 +763,7 @@ And (
       AND FND_ID_FLEX_SEGMENTS.ID_FLEX_CODE                           ='GL#')
       ) BS   
   WHERE gl.CHART_OF_ACCOUNTS_ID=BS.ID_FLEX_NUM
-    AND bs.last_update_date > TO_DATE(SUBSTR('2002-01-23 11:41:24',0,19),'YYYY-MM-DD HH24:MI:SS')
+    AND bs.last_update_date > IFNULL((select MAX(LAST_DATE) from "PC_FIVETRAN_DB"."OBIEE_DW"."W_GL_ACCOUNT_D"),'2002-01-23 11:32:25')
  UNION ALL
  SELECT gl.code_combination_id 
    FROM 
@@ -797,7 +801,7 @@ And (
       AND FND_ID_FLEX_SEGMENTS.ID_FLEX_CODE                     ='GL#')
       ) CC   
   WHERE gl.CHART_OF_ACCOUNTS_ID=cc.ID_FLEX_NUM
-    AND cc.last_update_date > TO_DATE(SUBSTR('2002-01-23 11:41:24',0,19),'YYYY-MM-DD HH24:MI:SS')
+    AND cc.last_update_date > IFNULL((select MAX(LAST_DATE) from "PC_FIVETRAN_DB"."OBIEE_DW"."W_GL_ACCOUNT_D"),'2002-01-23 11:32:25')
  ) TEMP
    WHERE GL_CODE_COMBINATIONS.code_combination_id = TEMP.code_combination_id
  )
@@ -946,7 +950,8 @@ GLACCOUNTFINAL AS
 	PROJECT_INTEGRATION_ID,
 	PROGRAM_CODE,
 	PROGRAM_ATTRIB,
-	PROGRAM_INTEGRATION_ID
+	PROGRAM_INTEGRATION_ID,
+  to_varchar(CURRENT_TIMESTAMP, 'yyyy-MM-DD hh:mi:ss') LAST_DATE
 	
 FROM (	
 

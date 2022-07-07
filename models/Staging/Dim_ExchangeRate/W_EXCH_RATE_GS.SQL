@@ -24,7 +24,8 @@ ELSE
 	TO_CHAR(SQ_GL_DAILY_RATES.CONVERSION_DATE, 'YYYY-MM-DD HH24:MI:SS')
 
 END )	   INTEGRATION_ID,
-to_varchar(CURRENT_TIMESTAMP, 'yyyy-MM-DD hh:mi:ss') LAST_DATE
+to_varchar(CURRENT_TIMESTAMP, 'yyyy-MM-DD hh:mi:ss') LAST_DATE,
+'{{ var("special_schema", "my_special_schema") }}' dt
 from	
 ( /* Subselect from SDE_ORA_ExchangeRateGeneral_Compress.W_EXCH_RATE_GS_SQ_GL_DAILY_RATES
 */
@@ -147,10 +148,10 @@ GL_DAILY_RATES.LAST_UPDATE_DATE
 	
 'N'
  DELETE_FLG
-from	"PC_FIVETRAN_DB"."ERPPRD_GL"."GL_DAILY_RATES"   GL_DAILY_RATES
+from	{{ source('GL','GL_DAILY_RATES') }}   GL_DAILY_RATES
 where	(1=1)
 
---And (GL_DAILY_RATES.CONVERSION_DATE>CURRENT_DATE-360000)
+And (GL_DAILY_RATES.CONVERSION_DATE>CURRENT_DATE-10)
 
 
 

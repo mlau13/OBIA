@@ -1,0 +1,353 @@
+version: 2
+
+sources:
+  - name: AP
+    database: PC_FIVETRAN_DB
+    schema: ERPPRD_AP
+    tables:
+       - name:	AP_EXPENSE_REPORT_PARAMS_ALL
+       - name:	AP_INVOICES_ALL
+       - name:	AP_INVOICE_DISTRIBUTIONS_ALL
+       - name:	AP_INVOICE_LINES_ALL
+       - name:	AP_INVOICE_PAYMENTS_ALL
+       - name:	AP_SUPPLIERS
+       - name:	FIVETRAN_AUDIT
+
+  - name: APPLSYS
+    database: PC_FIVETRAN_DB
+    schema: ERPPRD_APPLSYS
+    tables:
+       - name:	AP_EXPENSE_REPORT_PARAMS_ALL
+       - name:	AP_INVOICES_ALL
+       - name:	AP_INVOICE_DISTRIBUTIONS_ALL
+       - name:	AP_INVOICE_LINES_ALL
+       - name:	AP_INVOICE_PAYMENTS_ALL
+       - name:	AP_SUPPLIERS
+       - name:	FIVETRAN_AUDIT
+
+  - name: AR
+    database: PC_FIVETRAN_DB
+    schema: ERPPRD_AR
+    tables:
+       - name:	AR_ADJUSTMENTS_ALL
+       - name:	AR_CASH_RECEIPTS_ALL
+       - name:	AR_CASH_RECEIPT_HISTORY_ALL
+       - name:	AR_CONS_BILL_CYCLES_TL
+       - name:	AR_DISTRIBUTIONS_ALL
+       - name:	AR_MISC_CASH_DISTRIBUTIONS_ALL
+       - name:	AR_PAYMENT_SCHEDULES_ALL
+       - name:	AR_RECEIPT_METHODS
+       - name:	AR_RECEIVABLES_TRX_ALL
+       - name:	AR_RECEIVABLE_APPLICATIONS_ALL
+       - name:	AR_REVENUE_ADJUSTMENTS_ALL
+       - name:	AR_VAT_TAX_ALL_B
+       - name:	FIVETRAN_AUDIT
+       - name:	HZ_CONTACT_POINTS
+       - name:	HZ_CONTACT_PREFERENCES
+       - name:	HZ_CUSTOMER_PROFILES
+       - name:	HZ_CUST_ACCOUNTS
+       - name:	HZ_CUST_ACCOUNT_ROLES
+       - name:	HZ_CUST_ACCT_SITES_ALL
+       - name:	HZ_CUST_PROFILE_CLASSES
+       - name:	HZ_CUST_SITE_USES_ALL
+       - name:	HZ_LOCATIONS
+       - name:	HZ_ORG_CONTACTS
+       - name:	HZ_PARTIES
+       - name:	HZ_PARTY_RELATIONSHIPS
+       - name:	HZ_PARTY_SITES
+       - name:	HZ_PERSON_LANGUAGE
+       - name:	HZ_RELATIONSHIPS
+       - name:	RA_BATCHES_ALL
+       - name:	RA_BATCH_SOURCES_ALL
+       - name:	RA_CUSTOMER_TRX_ALL
+       - name:	RA_CUSTOMER_TRX_LINES_ALL
+       - name:	RA_CUST_TRX_LINE_GL_DIST_ALL
+       - name:	RA_CUST_TRX_LINE_SALESREPS_ALL
+       - name:	RA_CUST_TRX_TYPES_ALL
+       - name:	RA_INTERFACE_ERRORS_ALL
+       - name:	RA_INTERFACE_LINES_ALL
+       - name:	RA_RULES
+       - name:	RA_SALESREP_TERRITORIES
+       - name:	RA_TERMS_B
+       - name:	RA_TERMS_LINES
+       - name:	RA_TERMS_TL
+       - name:	RA_TERRITORIES
+
+  - name: BOM
+    database: PC_FIVETRAN_DB
+    schema: ERPPRD_BOM
+    tables:
+       - name:	CST_COST_ELEMENTS
+       - name:	FIVETRAN_AUDIT
+
+  - name: CSI
+    database: PC_FIVETRAN_DB
+    schema: ERPPRD_CSI
+    tables:
+       - name:	CSI_II_RELATIONSHIPS
+       - name:	CSI_INSTANCE_STATUSES
+       - name:	CSI_ITEM_INSTANCES
+       - name:	CSI_I_PRICING_ATTRIBS
+       - name:	CSI_SYSTEMS_B
+       - name:	CSI_SYSTEMS_TL
+       - name:	CSI_SYSTEMS_VL
+       - name:	CSI_T_TRANSACTION_LINES
+       - name:	CSI_T_TXN_LINE_DETAILS
+       - name:	FIVETRAN_AUDIT
+
+  - name: GL
+    database: PC_FIVETRAN_DB
+    schema: ERPPRD_GL
+    tables:
+       - name:	GL_BALANCES
+       - name:	GL_CODE_COMBINATIONS
+       - name:	GL_CODE_COMBINATIONS_KFV
+       - name:	GL_DAILY_RATES
+       - name:	GL_ENCUMBRANCE_TYPES
+       - name:	GL_HISTORICAL_RATES
+       - name:	GL_IEA_TRANSACTIONS
+       - name:	GL_IEA_TRANSACTION_TYPES
+       - name:	GL_IMPORT_REFERENCES
+       - name:	GL_JE_BATCHES
+       - name:	GL_JE_CATEGORIES_TL
+       - name:	GL_JE_HEADERS
+       - name:	GL_JE_INCLUSION_RULES
+       - name:	GL_JE_LINES
+       - name:	GL_JE_LINES_RECON
+       - name:	GL_JE_SEGMENT_VALUES
+       - name:	GL_JE_SEGVALS_UPGRADE
+       - name:	GL_JE_SOURCES_TL
+       - name:	GL_LEDGERS
+       - name:	GL_PERIODS
+       - name:	GL_PERIOD_SETS
+       - name:	GL_PERIOD_STATUSES
+       - name:	GL_PERIOD_TYPES
+       - name:	GL_ROW_MULTIPLIERS
+       - name:	MTL_ITEM_CATALOG_GROUPS_B_KFV
+
+  - name: HR
+    database: PC_FIVETRAN_DB
+    schema: ERPPRD_HR
+    tables:
+       - name:	HR_ALL_ORGANIZATION_UNITS
+       - name:	HR_ALL_ORGANIZATION_UNITS_TL
+       - name:	HR_ALL_POSITIONS_F
+       - name:	HR_LOCATIONS_ALL_TL
+       - name:	HR_OPERATING_UNITS
+       - name:	HR_ORGANIZATION_INFORMATION
+       - name:	HR_ORGANIZATION_UNITS
+       - name:	PAY_ALL_PAYROLLS_F
+       - name:	PAY_PEOPLE_GROUPS
+       - name:	PER_ADDRESSES
+       - name:	PER_ALL_ASSIGNMENTS_F
+       - name:	PER_ALL_PEOPLE_F
+       - name:	PER_ALL_POSITIONS
+       - name:	PER_ALL_VACANCIES
+       - name:	PER_ASSIGNMENT_EXTRA_INFO
+       - name:	PER_ASSIGNMENT_STATUS_TYPES
+       - name:	PER_ASSIGNMENT_STATUS_TYPES_TL
+       - name:	PER_ASS_STATUS_TYPE_AMENDS
+       - name:	PER_ASS_STATUS_TYPE_AMENDS_TL
+       - name:	PER_CAREER_PATHS
+       - name:	PER_CONTRACTS_F
+       - name:	PER_GRADES
+       - name:	PER_JOBS
+       - name:	PER_JOB_DEFINITIONS
+       - name:	PER_JOB_GROUPS
+       - name:	PER_ORGANIZATION_STRUCTURES
+       - name:	PER_ORG_STRUCTURE_ELEMENTS
+       - name:	PER_ORG_STRUCTURE_VERSIONS
+       - name:	PER_PAY_BASES
+       - name:	PER_PEOPLE_EXTRA_INFO
+       - name:	PER_PERIODS_OF_SERVICE
+       - name:	PER_PERSON_TYPES
+       - name:	PER_PERSON_TYPES_TL
+       - name:	PER_PERSON_TYPE_USAGES_F
+       - name:	PER_PHONES
+       - name:	PER_RECRUITMENT_ACTIVITIES
+
+  - name: HRI
+    database: PC_FIVETRAN_DB
+    schema: ERPPRD_HRI
+    tables:
+       - name:	HRI_ORG_HRCHY_SUMMARY
+
+  - name: INV
+    database: PC_FIVETRAN_DB
+    schema: ERPPRD_INV
+    tables:
+       - name:	MTL_CATEGORIES_B
+       - name:	MTL_CATEGORIES_TL
+       - name:	MTL_ITEM_CATALOG_GROUPS_B
+       - name:	MTL_ITEM_CATALOG_GROUPS_B_KFV
+       - name:	MTL_ITEM_CATEGORIES
+       - name:	MTL_ITEM_REVISIONS
+       - name:	MTL_ITEM_REVISIONS_B
+       - name:	MTL_ITEM_REVISIONS_TL
+       - name:	MTL_PARAMETERS
+       - name:	MTL_SYSTEM_ITEMS_B
+       - name:	MTL_SYSTEM_ITEMS_TL
+       - name:	MTL_TRANSACTION_TYPES
+
+  - name: JTF
+    database: PC_FIVETRAN_DB
+    schema: ERPPRD_JTF
+    tables:
+       - name:	FIVETRAN_AUDIT
+       - name:	JTF_NOTES_B
+       - name:	JTF_NOTES_TL
+       - name:	JTF_RS_RESOURCE_EXTNS
+       - name:	JTF_RS_RESOURCE_EXTNS_TL
+       - name:	JTF_RS_SALESREPS
+
+  - name: OKC
+    database: PC_FIVETRAN_DB
+    schema: ERPPRD_OKC
+    tables:
+       - name:	FIVETRAN_AUDIT
+       - name:	OKC_CONTACTS
+       - name:	OKC_DEL_STATUS_HISTORY
+       - name:	OKC_K_HEADERS_ALL_B
+       - name:	OKC_K_HEADERS_TL
+       - name:	OKC_K_HISTORY_B
+       - name:	OKC_K_HISTORY_TL
+       - name:	OKC_K_ITEMS
+       - name:	OKC_K_LINES_B
+       - name:	OKC_K_LINES_TL
+       - name:	OKC_K_PARTY_ROLES_B
+       - name:	OKC_K_REL_OBJS
+       - name:	OKC_PRICE_ATT_VALUES
+
+  - name: OKS
+    database: PC_FIVETRAN_DB
+    schema: ERPPRD_OKS
+    tables:
+       - name:	OKS_BILL_CONT_LINES
+       - name:	OKS_BILL_SUB_LINES
+       - name:	OKS_BILL_TXN_LINES
+       - name:	OKS_K_LINES_B
+       - name:	OKS_K_SALES_CREDITS
+
+  - name: ONT
+    database: PC_FIVETRAN_DB
+    schema: ERPPRD_ONT
+    tables:
+       - name:	OE_HEADERS_IFACE_ALL
+       - name:	OE_HOLD_DEFINITIONS
+       - name:	OE_HOLD_RELEASES
+       - name:	OE_HOLD_SOURCES_ALL
+       - name:	OE_LINES_IFACE_ALL
+       - name:	OE_ORDER_HEADERS_ALL
+       - name:	OE_ORDER_HOLDS_ALL
+       - name:	OE_ORDER_LINES_ALL
+       - name:	OE_ORDER_PRICE_ATTRIBS
+       - name:	OE_ORDER_SOURCES
+       - name:	OE_PRICE_ADJUSTMENTS
+       - name:	OE_SALES_CREDITS
+       - name:	OE_TRANSACTION_TYPES_ALL
+       - name:	OE_TRANSACTION_TYPES_TL
+
+  - name: PA
+    database: PC_FIVETRAN_DB
+    schema: ERPPRD_PA
+    tables:
+       - name:	PA_AGREEMENTS_ALL
+       - name:	PA_CREDIT_RECEIVERS
+       - name:	PA_CUST_EVENT_RDL_ALL
+       - name:	PA_CUST_REV_DIST_LINES_ALL
+       - name:	PA_DRAFT_INVOICES_ALL
+       - name:	PA_DRAFT_REVENUES_ALL
+       - name:	PA_EVENTS
+       - name:	PA_EXPENDITURES_ALL
+       - name:	PA_EXPENDITURE_CATEGORIES
+       - name:	PA_EXPENDITURE_ITEMS_ALL
+       - name:	PA_PROJECTS_ALL
+       - name:	PA_PROJECT_CLASSES
+       - name:	PA_PROJECT_CUSTOMERS
+       - name:	PA_PROJECT_FUNDINGS
+       - name:	PA_PROJECT_PARTIES
+       - name:	PA_PROJECT_PLAYERS
+       - name:	PA_PROJECT_ROLE_TYPES_B
+       - name:	PA_RESOURCE_CLASSES_B
+       - name:	PA_ROLE_CONTROLS
+       - name:	PA_SYSTEM_LINKAGES
+       - name:	PA_TASKS
+
+  - name: PO
+    database: PC_FIVETRAN_DB
+    schema: ERPPRD_PO
+    tables:
+       - name:	PO_AGENTS
+  
+  - name: QP
+    database: PC_FIVETRAN_DB
+    schema: ERPPRD_QP
+    tables:
+       - name:	OE_AGREEMENTS_B
+       - name:	QP_LIST_HEADERS_B
+       - name:	QP_LIST_HEADERS_TL
+       - name:	QP_PRICE_FORMULAS_B
+       - name:	QP_PRICE_FORMULAS_TL
+       - name:	QP_QUALIFIERS
+
+  - name: WRSAPP
+    database: PC_FIVETRAN_DB
+    schema: ERPPRD_WRSAPP
+    tables:
+       - name:	WRSBI_ITEM_DIM
+       - name:	WRS_EDI_830_FILES
+       - name:	WRS_EDI_830_HEADER
+       - name:	WRS_EDI_830_ITEMS
+       - name:	WRS_EDI_830_ITEM_FORECAST
+       - name:	WRS_EDI_830_ITEM_SHIPPED
+       - name:	WRS_EDI_830_NAME
+       - name:	WRS_EDI_862_FILES
+       - name:	WRS_EDI_862_HEADER
+       - name:	WRS_EDI_862_ITEMS
+       - name:	WRS_EDI_862_ITEM_FORECAST
+       - name:	WRS_EDI_862_ITEM_JIT_SCHED
+       - name:	WRS_EDI_862_ITEM_SHIPPED
+       - name:	WRS_EDI_862_NAME
+       - name:	WRS_LIC_HOST
+       - name:	WRS_LIC_OVERDRAFT
+       - name:	WRS_LIC_SEAT_CONS
+       - name:	WRS_LIC_SHIP_INFO
+       - name:	WRS_LIC_TEMP_LICENSE_KEY
+       - name:	WRS_LIC_TRANSACTION
+       - name:	WRS_SALES_ORDER_SPLIT_ALL
+       - name:	WRS_SC_SPLIT_ALL
+       - name:	WRS_SFDC_HEADER_ATTRIBUTES
+       - name:	WRS_SFDC_LINE_PRICE_ATTRS
+       - name:	WRS_SSO_USER_PROFILE
+       - name:	WRS_SSO_USER_ROLES
+       - name:	WRS_WEB_VASTERA
+
+  - name: WSH
+    database: PC_FIVETRAN_DB
+    schema: ERPPRD_WSH
+    tables:
+       - name:	FIVETRAN_AUDIT
+       - name:	WSH_CARRIER_SERVICES
+       - name:	WSH_DELIVERY_ASSIGNMENTS
+       - name:	WSH_DELIVERY_DETAILS
+       - name:	WSH_DELIVERY_LEGS
+       - name:	WSH_NEW_DELIVERIES
+       - name:	WSH_SERIAL_NUMBERS
+       - name:	WSH_TRIPS
+       - name:	WSH_TRIP_STOPS
+
+  - name: XLA
+    database: PC_FIVETRAN_DB
+    schema: ERPPRD_XLA
+    tables:
+       - name:	FIVETRAN_AUDIT
+       - name:	XLA_ACCTG_METHODS_TL
+       - name:	XLA_AE_HEADERS
+       - name:	XLA_AE_LINES
+       - name:	XLA_DISTRIBUTION_LINKS
+
+  - name: ZX
+    database: PC_FIVETRAN_DB
+    schema: ERPPRD_ZX
+    tables:
+       - name:	ZX_LINES

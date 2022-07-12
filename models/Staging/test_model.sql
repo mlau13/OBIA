@@ -1,1 +1,0 @@
-'{{ W_CUSTOMER_ACCOUNT_D() }}'

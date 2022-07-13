@@ -3,7 +3,7 @@ version: 2
 sources:
   - name: AP
     database: PC_FIVETRAN_DB
-    schema: ERPPRD_AP
+    schema: ERPPRD1_AP
     tables:
        - name:	AP_EXPENSE_REPORT_PARAMS_ALL
        - name:	AP_INVOICES_ALL

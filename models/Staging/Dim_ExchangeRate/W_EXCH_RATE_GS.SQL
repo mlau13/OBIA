@@ -24,8 +24,7 @@ ELSE
 	TO_CHAR(SQ_GL_DAILY_RATES.CONVERSION_DATE, 'YYYY-MM-DD HH24:MI:SS')
 
 END )	   INTEGRATION_ID,
-to_varchar(CURRENT_TIMESTAMP, 'yyyy-MM-DD hh:mi:ss') LAST_DATE,
-'{{ var("special_schema", "my_special_schema") }}' dt
+to_varchar(CURRENT_TIMESTAMP, 'yyyy-MM-DD hh:mi:ss') LAST_DATE
 from	
 ( /* Subselect from SDE_ORA_ExchangeRateGeneral_Compress.W_EXCH_RATE_GS_SQ_GL_DAILY_RATES
 */

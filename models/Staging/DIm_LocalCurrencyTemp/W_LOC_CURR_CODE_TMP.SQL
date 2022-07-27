@@ -1,0 +1,10 @@
+{{ config (
+    materialized="table"
+)}}
+select	
+	DISTINCT
+	GL_LEDGERS.CURRENCY_CODE	    LOC_CURR_CODE,
+	TO_CHAR(GL_LEDGERS.LEDGER_ID)	   INTEGRATION_ID,
+    380 DATASOURCE_NUM_ID 
+from	"PC_FIVETRAN_DB"."ERPPRD1_GL"."GL_LEDGERS"   GL_LEDGERS
+where	(1=1)

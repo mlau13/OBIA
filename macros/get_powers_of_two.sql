@@ -1,0 +1,1 @@
+dbt run --select path:models/Target;
